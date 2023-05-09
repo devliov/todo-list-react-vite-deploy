@@ -1,0 +1,24 @@
+.header{
+    width: 100vw;
+    height: 12.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.header .boxLogo{
+    width: 90rem;
+    height: 12.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header .logo{
+    width: 22px;
+    height: 36;
+}
+
+.header .nameLogo{
+    width: 92px;
+    height: 48px;
+}
