@@ -1,0 +1,48 @@
+.info {
+  justify-content: space-between;
+  display: flex;
+  width: 46rem;
+  height: 1, 1875rem;
+  margin-bottom: 1.5rem;
+}
+
+.tasksCreated {
+  display: inline-flex;
+  font-size: 0.875rem;
+  color: var(--blue);
+  font-weight: bold;
+
+}
+
+.tasksCreated > span {
+  display: inline-flex;
+  background: var(--gray-400);
+  border-radius: 20px;
+  width: 1.5rem;
+  height: 1.1875rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray-200);
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.tasksDone {
+  font-size: 0.875rem;
+  color: var(--purple);
+  font-weight: bold;
+}
+
+.tasksDone > span {
+  display: inline-flex;
+  background: var(--gray-400);
+  color: var(--gray-200);
+  width: 3.25rem;
+  height: 1.1875rem;
+  text-align: center;
+  border-radius: 999px;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}

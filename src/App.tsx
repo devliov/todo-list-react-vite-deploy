@@ -1,12 +1,15 @@
 import { Header } from "./components/header/Header";
-import { Create } from "./components/create-task/Create-task";
+import { TodoList } from "./components/box-tasks/Box-tasks";
 import "./index.css";
+
+
+
 
 function App() {
   return (
     <div>
       <Header />
-      <Create />
+      <TodoList/>
     </div>
   );
 }
