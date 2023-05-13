@@ -15,10 +15,6 @@ class Todo {
     this.content = content;
     this.isCompleted = false;
   }
-
-  toggleIsCompleted() {
-    this.isCompleted = !this.isCompleted;
-  }
 }
 
 export function TodoList() {
