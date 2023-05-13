@@ -44,7 +44,7 @@
   transform: scale(0);
   font-weight: 200;
   transform-origin: center;
-  transition: 120ms border ease-in-out;
+  transition: 120ms border ease-in;
   box-shadow: inset 1em 1em var(--purple-dark);
 
   display: flex;
@@ -54,7 +54,7 @@
 }
 
 .task > input[type="checkbox"]:checked::before{
-  rotate: 50deg;
+  rotate: 47deg;
   transform: scale(1);
   transform: scaleX(-1);
 }

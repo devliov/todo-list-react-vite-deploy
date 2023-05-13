@@ -30,7 +30,7 @@ export function Task({
         onChange={handleTaskStatusChange}
       />
       <p className={isChecked?styles.contentTextDone:""}>{content}</p>
-      <button onClick={handleDeleteTask}><Trash/></button>
+      <button className={styles.trash} onClick={handleDeleteTask}><Trash/></button>
     </li>
   );
 }

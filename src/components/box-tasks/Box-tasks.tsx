@@ -3,6 +3,7 @@ import { Task } from "../task/Task";
 
 import styles from "./Box-tasks.module.css";
 import { Count } from "../count-tasks/count-task";
+import { PlusCircle } from "phosphor-react";
 
 class Todo {
   id: string;
@@ -49,6 +50,8 @@ export function TodoList() {
       return task.isCompleted ? total + 1 : total;
     }, 0);
     setDone(totalTaskDone);
+    console.log("feito");
+    
   }
 
   function handleAddTodo() {
@@ -75,14 +78,14 @@ export function TodoList() {
 
   return (
     <>
-      <div className={styles.contentInput}>
+      <div className={styles.main}>
         <input
           type="text"
           value={newTodo}
           onChange={handleNewTodoChange}
           placeholder="Adicione uma nova tarefa"
         />
-        <button onClick={handleAddTodo}>Adicionar</button>
+        <button onClick={handleAddTodo}>Criar<span><PlusCircle size={19}/></span></button>
       </div>
       <div className={styles.tasks}>
         <Count tasksDone={done} tasksCreated={tasks.length} />

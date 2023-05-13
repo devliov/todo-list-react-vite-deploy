@@ -1,4 +1,4 @@
-.contentInput {
+.main {
   width: 100vw;
   text-align: center;
 
@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
 }
-.contentInput {
+.main {
   margin-top: -1.6875rem;
   margin-left: auto;
   margin-right: auto;
@@ -19,7 +19,7 @@
   width: 46rem;
   gap: 0.5rem;
 }
-.contentInput input {
+.main input {
   background: var(--gray-500);
   border-radius: 8px;
   border: 1px solid var(--gray-700);
@@ -31,12 +31,12 @@
   padding-left: 1rem;
 }
 
-.contentInput input:focus {
+.main input:focus {
   border: 1px solid var(--purple-dark);
   color: var(--gray-100);
 }
 
-.contentInput button {
+.main button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -55,12 +55,12 @@
 
   transition: background 0.1s;
 }
-.contentInput button > span {
-  font-weight: bold;
-  padding-bottom: 2px;
+.main button > span {
+  font-weight: bolder;
+  margin-bottom: -4px;
   font-size: 0.875rem;
 }
-.contentInput button:hover {
+.main button:hover {
   background: var(--blue);
 }
 
@@ -114,106 +114,4 @@
   align-items: center;
   font-size: 0.75rem;
   margin-left: 0.5rem;
-}
-
-.boxTasks {
-  gap: 0.75rem;
-}
-
-.done {
-  text-decoration: line-through;
-  color: var(--gray-300);
-}
-
-.undone {
-  text-decoration: none;
-}
-
-.task {
-  display: flex;
-  width: 46rem;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: var(--gray-500);
-  margin-bottom: 0.75rem;
-  border: 0.5px solid var(--gray-400);
-  border-radius: 8px;
-}
-
-.boxInput {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.contentText {
-  width: 39.5rem;
-  color: var(--gray-100);
-  font-size: 0.875rem;
-  font-weight: 400;
-}
-
-.noChecked {
-  display: inline-block;
-  position: relative;
-  width: 17.45px;
-  height: 17.45px;
-  border: 0.5px solid var(--blue);
-  border-radius: 100%;
-  cursor: pointer;
-  background: var(--gray-400);
-}
-
-.checked {
-  cursor: pointer;
-  border: none;
-}
-
-.checked::before{
-  transform-origin: center;
-  content: "L";
-  display: inline-block;
-  text-align: center;
-  width: 17.5px;
-  height: 17.5px;
-  margin-top: -9px;
-  margin-left: -9px;
-  font-size: 0.75rem;
-  position: absolute;
-  transform: scaleX(-1);
-  rotate: 45deg;
-  background: var(--purple-dark);
-  color: var(--gray-100);
-  border-radius: 100%;
-}
-
-.done {
-  text-decoration: line-through;
-  color: var(--gray-300);
-}
-
-.undone {
-  text-decoration: none;
-}
-
-.trash {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.trash > button {
-  width: 12.48px;
-  height: 14px;
-  background: var(--gray-500);
-  color: var(--gray-300);
-  border: none;
-}
-
-.trash > button:hover {
-  color: var(--danger);
 }
