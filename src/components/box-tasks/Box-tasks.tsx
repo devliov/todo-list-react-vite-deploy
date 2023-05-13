@@ -4,6 +4,7 @@ import { Task } from "../task/Task";
 import styles from "./Box-tasks.module.css";
 import { Count } from "../count-tasks/count-task";
 import { PlusCircle } from "phosphor-react";
+import { TaskListEmpyt } from "../Task-list-empty/TaskListEmpty";
 
 class Todo {
   id: string;
@@ -47,7 +48,6 @@ export function TodoList() {
     }, 0);
     setDone(totalTaskDone);
     console.log("feito");
-    
   }
 
   function handleAddTodo() {
@@ -72,6 +72,8 @@ export function TodoList() {
     console.log("Deletado");
   };
 
+  const listEmpity = tasks.length === 0;
+
   return (
     <>
       <div className={styles.main}>
@@ -81,25 +83,34 @@ export function TodoList() {
           onChange={handleNewTodoChange}
           placeholder="Adicione uma nova tarefa"
         />
-        <button onClick={handleAddTodo}>Criar<span><PlusCircle size={19}/></span></button>
+        <button onClick={handleAddTodo}>
+          Criar
+          <span>
+            <PlusCircle size={19} />
+          </span>
+        </button>
       </div>
       <div className={styles.tasks}>
         <Count tasksDone={done} tasksCreated={tasks.length} />
+      {listEmpity ? (
+        <TaskListEmpyt />
+      ) : (
+        <ul>
+          {Array.from(tasks)
+            .reverse()
+            .map((task) => (
+              <Task
+                key={task.id}
+                content={task.content}
+                onDeleteTask={deletedTask}
+                id={task.id}
+                isCompleted={task.isCompleted}
+                onUpdateTaskStatus={handleTaskChecked}
+              />
+            ))}
+        </ul>
+      )}
       </div>
-      <ul>
-        {Array.from(tasks)
-          .reverse()
-          .map((task) => (
-            <Task
-              key={task.id}
-              content={task.content}
-              onDeleteTask={deletedTask}
-              id={task.id}
-              isCompleted={task.isCompleted}
-              onUpdateTaskStatus={handleTaskChecked}
-            />
-          ))}
-      </ul>
     </>
   );
 }

@@ -1,0 +1,17 @@
+.listEmpty{
+    display: flex;
+    flex-direction: column;
+    width: 46rem;
+    height: 15.25rem;
+    justify-content: center;
+    align-items: center;
+    
+}
+.listEmpty :nth-child(1){
+    color: var(--gray-300);
+}
+
+.listEmpty :nth-child(2){
+    color: var(--gray-300);
+}
+
