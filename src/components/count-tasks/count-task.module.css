@@ -1,9 +1,16 @@
 .info {
-  justify-content: space-between;
   display: flex;
+  justify-content: space-between;
   width: 46rem;
-  height: 1, 1875rem;
+  height: 1.1875rem;
   margin-bottom: 1.5rem;
+}
+@media screen and (max-width:500px){
+  .info{
+    width: 23rem;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .tasksCreated {
@@ -11,7 +18,6 @@
   font-size: 0.875rem;
   color: var(--blue);
   font-weight: bold;
-
 }
 
 .tasksCreated > span {
@@ -33,11 +39,25 @@
   font-weight: bold;
 }
 
-.tasksDone > span {
+.onTasks {
   display: inline-flex;
   background: var(--gray-400);
   color: var(--gray-200);
   width: 3.25rem;
+  height: 1.1875rem;
+  text-align: center;
+  border-radius: 999px;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.offTasks {
+  display: inline-flex;
+  background: var(--gray-400);
+  color: var(--gray-200);
+  width: 1.5625rem;
   height: 1.1875rem;
   text-align: center;
   border-radius: 999px;

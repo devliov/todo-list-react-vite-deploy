@@ -7,6 +7,22 @@
   justify-content: center;
   align-items: center;
 }
+@media screen and (max-width:500px){
+  .main{
+  width: 100vw;
+  text-align: center;
+
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .tasks{
+    width: 30px;
+  }
+}
+
 .main {
   margin-top: -1.6875rem;
   margin-left: auto;

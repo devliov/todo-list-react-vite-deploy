@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Task } from "../task/Task";
 
 import styles from "./Box-tasks.module.css";
@@ -23,11 +23,44 @@ export function TodoList() {
 
   const [newTodo, setNewTodo] = useState("");
 
-  const [amount, setAmout] = useState(0);
-
   const [done, setDone] = useState(0);
 
-  const [chechekd, setChecked] = useState(false);
+  useEffect(() => {
+    handleTaskDone();
+  });
+
+  const handleNewTodoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNewTodo(event.target.value);
+  };
+
+  const listEmpity = tasks.length === 0;
+
+  const handleAddTodo = (): void => {
+    if (newTodo.trim() !== "") {
+      setTasks([...tasks, new Todo(newTodo)]);
+      setNewTodo("");
+    }
+    console.log("Adicionado");
+  };
+
+  const deletedTask = (deleted: string) => {
+    const filteredTasks = tasks.filter((task) => {
+      if (task.id != deleted) {
+        return task;
+      }
+    });
+    setTasks(filteredTasks);
+    console.log("Deletado");
+  };
+
+  const handleTaskDone = (): void => {
+    const totalTaskDone = tasks.reduce((total, task) => {
+      return task.isCompleted ? total + 1 : total;
+    }, 0);
+
+    setDone(totalTaskDone);
+    console.log("feito");
+  };
 
   const handleTaskChecked = (id: string, isCompleted: boolean) => {
     const tasksChecked = tasks.map((task) => {
@@ -36,43 +69,11 @@ export function TodoList() {
       }
       return task;
     });
-    setTasks(tasksChecked);
-    setChecked(!chechekd);
+
     handleTaskDone();
+    setTasks(tasksChecked);
     console.log("checkedj");
   };
-
-  function handleTaskDone() {
-    const totalTaskDone = tasks.reduce((total, task) => {
-      return task.isCompleted ? total + 1 : total;
-    }, 0);
-    setDone(totalTaskDone);
-    console.log("feito");
-  }
-
-  function handleAddTodo() {
-    if (newTodo.trim() !== "") {
-      setTasks([...tasks, new Todo(newTodo)]);
-      setNewTodo("");
-      setAmout(amount + 1);
-    }
-    console.log("Adicionado");
-  }
-
-  function handleNewTodoChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setNewTodo(event.target.value);
-  }
-
-  const deletedTask = (deleted: string) => {
-    const filteredTasks = tasks.filter((task) => {
-      return task.id != deleted;
-    });
-    setTasks(filteredTasks);
-    setAmout(amount - 1);
-    console.log("Deletado");
-  };
-
-  const listEmpity = tasks.length === 0;
 
   return (
     <>
@@ -91,25 +92,25 @@ export function TodoList() {
         </button>
       </div>
       <div className={styles.tasks}>
-        <Count tasksDone={done} tasksCreated={tasks.length} />
-      {listEmpity ? (
-        <TaskListEmpyt />
-      ) : (
-        <ul>
-          {Array.from(tasks)
-            .reverse()
-            .map((task) => (
-              <Task
-                key={task.id}
-                content={task.content}
-                onDeleteTask={deletedTask}
-                id={task.id}
-                isCompleted={task.isCompleted}
-                onUpdateTaskStatus={handleTaskChecked}
-              />
-            ))}
-        </ul>
-      )}
+        <Count tasksDone={done} tasksCreated={tasks.length} css={listEmpity} />
+        {listEmpity ? (
+          <TaskListEmpyt />
+        ) : (
+          <ul>
+            {Array.from(tasks)
+              .reverse()
+              .map((task) => (
+                <Task
+                  key={task.id}
+                  content={task.content}
+                  onDeleteTask={deletedTask}
+                  id={task.id}
+                  isCompleted={task.isCompleted}
+                  onUpdateTaskStatus={handleTaskChecked}
+                />
+              ))}
+          </ul>
+        )}
       </div>
     </>
   );

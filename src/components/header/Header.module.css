@@ -22,3 +22,10 @@
     width: 92px;
     height: 48px;
 }
+
+@media screen and (max-width:500px){
+    .header {
+        width: 100vw;
+        height: 10rem;
+    }
+}

@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     
+    
 }
 .listEmpty :nth-child(1){
     color: var(--gray-300);
@@ -15,3 +16,9 @@
     color: var(--gray-300);
 }
 
+@media screen and (max-width:500px){
+    .listEmpty{
+        width: 30rem;
+        height: 10;
+    }
+}
