@@ -3,7 +3,8 @@
     height: 12.5rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:last baseline;
+    background: var(--gray-700);
     
 }
 .header .boxLogo{
@@ -26,6 +27,7 @@
 @media screen and (max-width:500px){
     .header {
         width: 100vw;
+        height: 10rem;
         height: 10rem;
     }
 }

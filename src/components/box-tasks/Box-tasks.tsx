@@ -25,10 +25,6 @@ export function TodoList() {
 
   const [done, setDone] = useState(0);
 
-  useEffect(() => {
-    handleTaskDone();
-  });
-
   const handleNewTodoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTodo(event.target.value);
   };
@@ -40,7 +36,6 @@ export function TodoList() {
       setTasks([...tasks, new Todo(newTodo)]);
       setNewTodo("");
     }
-    console.log("Adicionado");
   };
 
   const deletedTask = (deleted: string) => {
@@ -50,7 +45,6 @@ export function TodoList() {
       }
     });
     setTasks(filteredTasks);
-    console.log("Deletado");
   };
 
   const handleTaskDone = (): void => {
@@ -59,8 +53,11 @@ export function TodoList() {
     }, 0);
 
     setDone(totalTaskDone);
-    console.log("feito");
   };
+
+  useEffect(() => {
+    handleTaskDone();
+  }, [tasks]);
 
   const handleTaskChecked = (id: string, isCompleted: boolean) => {
     const tasksChecked = tasks.map((task) => {
@@ -72,45 +69,53 @@ export function TodoList() {
 
     handleTaskDone();
     setTasks(tasksChecked);
-    console.log("checkedj");
   };
 
   return (
     <>
-      <div className={styles.main}>
-        <input
-          type="text"
-          value={newTodo}
-          onChange={handleNewTodoChange}
-          placeholder="Adicione uma nova tarefa"
-        />
-        <button onClick={handleAddTodo}>
-          Criar
-          <span>
-            <PlusCircle size={19} />
-          </span>
-        </button>
+      <div className={styles.containerCreate}>
+        <div className={styles.create}>
+          <input
+            className={styles.newTask}
+            type="text"
+            value={newTodo}
+            onChange={handleNewTodoChange}
+            placeholder="Adicione uma nova tarefa"
+          />
+          <button onClick={handleAddTodo}>
+            Criar
+            <span>
+              <PlusCircle size={19} />
+            </span>
+          </button>
+        </div>
       </div>
-      <div className={styles.tasks}>
-        <Count tasksDone={done} tasksCreated={tasks.length} css={listEmpity} />
-        {listEmpity ? (
-          <TaskListEmpyt />
-        ) : (
-          <ul>
-            {Array.from(tasks)
-              .reverse()
-              .map((task) => (
-                <Task
-                  key={task.id}
-                  content={task.content}
-                  onDeleteTask={deletedTask}
-                  id={task.id}
-                  isCompleted={task.isCompleted}
-                  onUpdateTaskStatus={handleTaskChecked}
-                />
-              ))}
-          </ul>
-        )}
+      <div className={styles.container}>
+        <div className={styles.tasks}>
+          <Count
+            tasksDone={done}
+            tasksCreated={tasks.length}
+            css={listEmpity}
+          />
+          {listEmpity ? (
+            <TaskListEmpyt />
+          ) : (
+            <ul>
+              {Array.from(tasks)
+                .reverse()
+                .map((task) => (
+                  <Task
+                    key={task.id}
+                    content={task.content}
+                    onDeleteTask={deletedTask}
+                    id={task.id}
+                    isCompleted={task.isCompleted}
+                    onUpdateTaskStatus={handleTaskChecked}
+                  />
+                ))}
+            </ul>
+          )}
+        </div>
       </div>
     </>
   );

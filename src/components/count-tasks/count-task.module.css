@@ -1,18 +1,17 @@
 .info {
   display: flex;
   justify-content: space-between;
-  width: 46rem;
+  width: 100%;
   height: 1.1875rem;
   margin-bottom: 1.5rem;
-}
-@media screen and (max-width:500px){
-  .info{
-    width: 23rem;
-    display: flex;
-    justify-content: space-between;
-  }
+  flex-wrap: wrap;
 }
 
+@media screen and (max-width: 275px) {
+  .info {
+    justify-content: center;
+  }
+}
 .tasksCreated {
   display: inline-flex;
   font-size: 0.875rem;

@@ -1,11 +1,12 @@
 .listEmpty{
     display: flex;
     flex-direction: column;
-    width: 46rem;
+    width: 100%;
     height: 15.25rem;
     justify-content: center;
     align-items: center;
-    
+    border-top:1px solid var(--gray-400);
+    border-radius: 10px;
     
 }
 .listEmpty :nth-child(1){
@@ -16,9 +17,11 @@
     color: var(--gray-300);
 }
 
-@media screen and (max-width:500px){
+@media screen and (max-width:350px){
     .listEmpty{
-        width: 30rem;
-        height: 10;
+        padding-top: 3rem;
+        display: block;
+        text-align: center;
+        
     }
 }
