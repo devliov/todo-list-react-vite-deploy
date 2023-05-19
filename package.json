@@ -1,4 +1,4 @@
-{ 
+{
   "homepage": "https:://devliov.github.io/todo-list-react-vite-deploy",
   "name": "to-dolist",
   "private": true,
@@ -9,8 +9,8 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "predeploy":"npm run buid",
-    " deploy":"gh-pages -d dist"
+    "predeploy": "npm run buid",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "gh-pages": "^5.0.0",
