@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { TaskProps } from "./TaskProps";
 import { Trash } from "phosphor-react";
-import styles from "./Task.module.css"
+import styles from "./Task.module.css";
 
 export function Task({
   id,
@@ -29,8 +29,10 @@ export function Task({
         checked={isChecked}
         onChange={handleTaskStatusChange}
       />
-      <p className={isChecked?styles.contentTextDone:""}>{content}</p>
-      <button className={styles.trash} onClick={handleDeleteTask}><Trash/></button>
+      <p className={isChecked ? styles.contentTextDone : ""}>{content}</p>
+      <button className={styles.trash} onClick={handleDeleteTask}>
+        <Trash />
+      </button>
     </li>
   );
 }
