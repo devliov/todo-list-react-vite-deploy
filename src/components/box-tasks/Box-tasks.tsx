@@ -46,18 +46,20 @@ export function TodoList() {
     });
     setTasks(filteredTasks);
   };
-
-  const handleTaskDone = (): void => {
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleTaskDone = ()=> {
     const totalTaskDone = tasks.reduce((total, task) => {
       return task.isCompleted ? total + 1 : total;
     }, 0);
-
+    
     setDone(totalTaskDone);
   };
-
+  
   useEffect(() => {
     handleTaskDone();
-  }, [tasks]);
+  }, [ tasks,handleTaskDone]);
+
 
   const handleTaskChecked = (id: string, isCompleted: boolean) => {
     const tasksChecked = tasks.map((task) => {
