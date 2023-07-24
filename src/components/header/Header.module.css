@@ -1,0 +1,33 @@
+.header{
+    width: 100vw;
+    height: 12.5rem;
+    display: flex;
+    justify-content: center;
+    align-items:last baseline;
+    background: var(--gray-700);
+    
+}
+.header .boxLogo{
+    width: 90rem;
+    height: 12.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header .logo{
+    width: 22px;
+    height: 36;
+}
+
+.header .nameLogo{
+    width: 92px;
+    height: 48px;
+}
+
+@media screen and (max-width:500px){
+    .header {
+        width: 100vw;
+        height: 10rem;
+        height: 10rem;
+    }
+}
